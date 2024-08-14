@@ -4,11 +4,12 @@ import const
 from dht22_controller import DHT22SensorController, SensorReadingError
 from hysteresis import BangBangController
 from led_controller import LEDController
-from led_signal import LedTemperatureSignal
+from led_signal import LedTemperatureSignaller
 from relay_controller import RelayController
 
 
 def main_loop():
+    # Initialize the components
     dht22 = DHT22SensorController(const.DHT22_PIN_NUM)
     onboard_led = LEDController(const.ONBOARD_LED_PIN_NUM)
     attached_led = LEDController(const.ATTACHED_LED_PIN_NUM)
@@ -22,7 +23,7 @@ def main_loop():
         deviation_upper=const.TEMPERATURE_DEVIATION_TOLERANCE,
         deviation_lower=const.TEMPERATURE_DEVIATION_TOLERANCE
     )
-    led_temperature_signal = LedTemperatureSignal(
+    led_temperature_signaller = LedTemperatureSignaller(
         attached_led=attached_led,
         target_temperature=const.TARGET_TEMPERATURE,
         max_tolerance=const.TEMPERATURE_MAX_TOLERANCE,
@@ -56,9 +57,11 @@ def main_loop():
                 onboard_led.turn_off()
 
             # If the temperature is too high or too low, something might have gone wrong,
-            # so signal the event to the user. If the attached LED is blinking, it's too hot.
-            # If it's on, it's too cold. If it's off, everything is fine.
-            led_temperature_signal.signal(temperature)
+            # so signal the event to the user:
+            #   - If the attached LED is blinking, it's too hot.
+            #   - If it's on, it's too cold.
+            #   - If it's off, everything is fine.
+            led_temperature_signaller.signal(temperature)
 
             # Sleep for a while before the next iteration
             sleep(const.DHT22_SAMPLING_INTERVAL)

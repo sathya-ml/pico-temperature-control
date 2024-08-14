@@ -1,5 +1,5 @@
-from machine import Pin
 import dht
+from machine import Pin
 
 
 class SensorReadingError(Exception):

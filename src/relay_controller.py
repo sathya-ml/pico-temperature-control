@@ -72,4 +72,4 @@ class RelayController:
         Returns:
             bool: True if the relay is on, False if off.
         """
-        return self.pin.value() != self.active_low  # Consider activation mode
+        return self.pin.value() != self.active_low
