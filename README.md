@@ -113,7 +113,7 @@ The files in *test/* are optional, and are intended to test the functionality of
 connected to the Pico, like the relay, the LEDs, and the DHT22 sensor.
 The files in *src/* contain the main code that will run on the Pico.
 
-Once the *src/* files are on the Pico, the main.py script will automatically run and execute the code the next time
+Once the *src/* files are on the Pico, the `main.py` script will automatically run and execute the code the next time
 you power on the Pico.
 
 ## License
