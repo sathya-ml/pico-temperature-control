@@ -5,12 +5,11 @@
 This project involves working with electricity, which can be dangerous and potentially life-threatening if not done
 correctly.
 It may include components or instructions that require working with both low-voltage circuits and higher voltages that
-can be hazardous. I am not an expert in electrical engineering or safety, and this project is provided solely for
-educational
-and informational purposes. If you are not experienced or qualified to handle electrical components,
-particularly those involving higher voltages, please seek assistance from a professional. The author is not
+can be hazardous. **I am not an expert in electrical engineering or safety, and this project is provided solely for
+educational and informational purposes**. If you are not experienced or qualified to handle electrical components,
+particularly those involving higher voltages, please seek assistance from a professional. **The author is not
 liable for any injury, damage, or loss of life resulting from following the instructions or
-using the code provided in this repository. Proceed with caution and at your own risk.
+using the code provided in this repository. Proceed with caution and at your own risk.**
 
 ## Description
 
