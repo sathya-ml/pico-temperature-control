@@ -49,6 +49,9 @@ def main_loop():
                     break
                 else:
                     sensor_reading_fail_cnt += 1
+                    # Don't forget to sleep, since we usually do that at the end of the loop, and here
+                    # we're continuing the loop prematurely.
+                    sleep(const.DHT22_SAMPLING_INTERVAL)
                     continue
 
             # We've managed to perform control, so reset the fail counter and turn off the onboard LED.
