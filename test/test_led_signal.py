@@ -13,14 +13,14 @@ led_temperature_signaller = LedTemperatureSignaller(
 )
 
 led_temperature_signaller.signal(
-    current_temperature=const.TARGET_TEMPERATURE - const.TEMPERATURE_MAX_TOLERANCE - 1
+    temperature=const.TARGET_TEMPERATURE - const.TEMPERATURE_MAX_TOLERANCE - 1
 )
 sleep(3)
 led_temperature_signaller.signal(
-    current_temperature=const.TARGET_TEMPERATURE + const.TEMPERATURE_MAX_TOLERANCE + 1
+    temperature=const.TARGET_TEMPERATURE + const.TEMPERATURE_MAX_TOLERANCE + 1
 )
 sleep(3)
 led_temperature_signaller.signal(
-    current_temperature=const.TARGET_TEMPERATURE
+    temperature=const.TARGET_TEMPERATURE
 )
 sleep(3)
