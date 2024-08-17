@@ -2,7 +2,7 @@ from time import sleep
 
 import const
 from dht22_controller import DHT22SensorController, SensorReadingError
-from hysteresis import BangBangController
+from hysteresis import HysteresisController
 from led_controller import LEDController
 from led_signal import LedTemperatureSignaller
 from relay_controller import RelayController
@@ -17,7 +17,7 @@ def main_loop():
         const.HEATER_RELAY_PIN_NUM,
         active_low=const.HEATER_RELAY_ACTIVE_LOW
     )
-    bang_bang_controller = BangBangController(
+    hysteresis_controller = HysteresisController(
         relay=heater_relay,
         target_value=const.TARGET_TEMPERATURE,
         deviation_upper=const.TEMPERATURE_DEVIATION_TOLERANCE,
@@ -37,7 +37,7 @@ def main_loop():
             try:
                 # Read the sensor and perform control of the heater element
                 temperature, _ = dht22.read()
-                bang_bang_controller.control(temperature)
+                hysteresis_controller.control(temperature)
             except SensorReadingError:
                 # Allow for the sensor to fail a few times before aborting, it sometimes happens.
                 # Keep a count, if it exceeds the maximum number of fails allowed, abort.

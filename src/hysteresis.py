@@ -1,7 +1,7 @@
-class BangBangController:
+class HysteresisController:
     def __init__(self, relay, target_value, deviation=None, deviation_upper=None, deviation_lower=None):
         """
-        Initializes the BangBangController.
+        Initializes the HysteresisController.
 
         Args:
             relay (object): An object with `turn_on()`, `turn_off()` and `get_state()` methods to control the relay.
