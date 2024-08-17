@@ -1,6 +1,6 @@
 # Raspberry Pi Pico Temperature Controller
 
-⚠️ Disclaimer
+⚠️ **Disclaimer**
 
 This project involves working with electricity, which can be dangerous and potentially life-threatening if not done
 correctly.
